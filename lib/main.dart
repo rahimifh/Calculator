@@ -3,6 +3,8 @@ import 'package:math_expressions/math_expressions.dart';
 // Import the dart:math library
 import 'dart:math';
 
+import 'package:start/balance_parentheses.dart';
+
 void main() {
   runApp(const MyApp(start: "I'm start and nobody can stay against me"));
 }
@@ -142,7 +144,10 @@ class _CalculatorState extends State<Calculator> {
               children: <Widget>[
                 TextButton(onPressed: clear, child: const Text("C")),
                 TextButton(
-                    onPressed: () => _append('pow('), child: const Text('()')),
+                    child: const Text('()'),
+                    onPressed: () {
+                      _append(balanceParentheses(input));
+                    }),
                 TextButton(
                     onPressed: () => _append('pow('), child: const Text('%')),
                 TextButton(
