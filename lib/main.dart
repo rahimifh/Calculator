@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:start/balance_parentheses.dart';
 import 'package:start/widgets/app_drawer.dart';
 
 void main() {
@@ -39,30 +40,37 @@ class _CalculatorState extends State<Calculator> {
   String input = '';
   // A string to store tesult of calculation
   String result = '';
-
+  // list all of btns text
   final List<List<String>> expressionLists = const [
     ['√', 'pow', 'π', '!'],
     ['C', '()', '%', '/'],
     ['7', '8', '9', '*'],
     ['4', '5', '6', '-'],
     ['1', '2', '3', '+'],
-    ['0', '.', 'clear', '='],
+    ['0', '.', 'remove', '='],
   ];
 
   // A function to _append a character to the input
-  // void _append(String char) {
-  //   setState(() {
-  //     input += char;
-  //   });
-  // }
+  void append(String char) {
+    setState(() {
+      input += char;
+    });
+  }
 
   // A function to clear the input and result
-  // void clear() {
-  //   setState(() {
-  //     input = '';
-  //     result = '';
-  //   });
-  // }
+  void clear() {
+    setState(() {
+      input = '';
+      result = '';
+    });
+  }
+
+  //remove single number or operation
+  void remove() {
+    setState(() {
+      input = input.substring(0, input.length - 1);
+    });
+  }
 
   // A function to evaluate the input and show the result
   void evaluate() {
@@ -79,10 +87,28 @@ class _CalculatorState extends State<Calculator> {
         result = eval.toString();
       });
     } catch (e) {
-      // If there is an error, show it as the result
-      setState(() {
-        result = e.toString();
-      });
+      // If there is an error, show it in snackbar
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$e')));
+    }
+  }
+
+  //ontap func for every btn
+  void onTap(String char) {
+    switch (char) {
+      case 'C':
+        clear();
+        break;
+      case 'remove':
+        remove();
+        break;
+      case '=':
+        evaluate();
+        break;
+      case '()':
+        append(balanceParentheses(input));
+        break;
+      default:
+        append(char);
     }
   }
 
@@ -138,7 +164,7 @@ class _CalculatorState extends State<Calculator> {
                 children: expressionLists
                     .map(
                       (e) => Expanded(
-                        child: RowBtns(btns: e),
+                        child: rowBtns(btns: e),
                       ),
                     )
                     .toList(),
@@ -150,15 +176,9 @@ class _CalculatorState extends State<Calculator> {
       drawer: const AppDrawer(),
     );
   }
-}
 
-class RowBtns extends StatelessWidget {
-  const RowBtns({super.key, required this.btns});
-
-  final List<String> btns;
-
-  @override
-  Widget build(BuildContext context) {
+  //1 row = 4 button
+  Widget rowBtns({required List<String> btns}) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: btns
@@ -167,13 +187,13 @@ class RowBtns extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => onTap(e),
                   style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),
-                  child: e == 'clear'
+                  child: e == 'remove'
                       ? const Icon(
                           Icons.backspace,
                           size: 28,
