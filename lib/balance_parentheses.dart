@@ -4,9 +4,6 @@ String balanceParentheses(String input) {
   // A regular expression to match a word followed by an opening parenthesis
   RegExp regex = RegExp(r"(\d+|\w+)?\(");
 
-  // A string to store the output
-  String output = input;
-
   // Loop through all the matches in the input
   for (RegExpMatch match in regex.allMatches(input)) {
     // Get the matched string
