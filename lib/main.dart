@@ -30,8 +30,5 @@ class MyApp extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           themeMode: value.themeMode,
           home: const SimpleCalculatorPage(),
-        ),
-      ),
-    );
   }
 }
