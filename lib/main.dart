@@ -4,7 +4,7 @@ import 'package:start/balance_parentheses.dart';
 import 'package:start/widgets/app_drawer.dart';
 
 void main() {
-  runApp(const MyApp(start: "I'm start and nobody can stay against me"));
+  runApp(const MyApp(start: "CALCULATOR"));
 }
 
 class MyApp extends StatelessWidget {
@@ -105,7 +105,9 @@ class _CalculatorState extends State<Calculator> {
         evaluate();
         break;
       case '()':
-        append(balanceParentheses(input));
+        setState(() {
+          input = balanceParentheses(input);
+        });
         break;
       default:
         append(char);
