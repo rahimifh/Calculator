@@ -15,20 +15,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<MathController>(
-          create: (context) => MathController(),
-        ),
-        ChangeNotifierProvider<ThemeController>(
-          create: (context) => ThemeController(),
-        ),
-      ],
-      child: Consumer<ThemeController>(
-        builder: (context, value, child) => MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: value.themeMode,
-          home: const SimpleCalculatorPage(),
+        providers: [
+          ChangeNotifierProvider<MathController>(
+            create: (context) => MathController(),
+          ),
+          ChangeNotifierProvider<ThemeController>(
+            create: (context) => ThemeController(),
+          ),
+        ],
+        child: Consumer<ThemeController>(
+            builder: (context, value, child) => MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  theme: AppTheme.lightTheme,
+                  darkTheme: AppTheme.darkTheme,
+                  themeMode: value.themeMode,
+                  home: const SimpleCalculatorPage(),
+                )));
   }
 }
