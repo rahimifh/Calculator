@@ -59,7 +59,8 @@ class MathController extends ChangeNotifier {
         evaluate();
         break;
       case '()':
-        append(balanceParentheses(input));
+        input = balanceParentheses(input);
+        notifyListeners();
         break;
       default:
         append(char);
