@@ -1,4 +1,6 @@
 // A function that checks if the parentheses are balanced and returns the balanced input
+import 'package:flutter/foundation.dart';
+
 String balanceParentheses(String input) {
   // A variable to store the number of opening parentheses
   int open = 0;
