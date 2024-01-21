@@ -18,23 +18,23 @@ class RowBtns extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: btns
           .map(
-            (e) => Expanded(
+            (item) => Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextButton(
-                  onPressed: () => context.read<MathController>().onTap(e),
+                  onPressed: () => context.read<MathController>().onTap(item),
                   style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),
-                  child: e == 'remove'
+                  child: item == 'remove'
                       ? const Icon(
                           Icons.backspace,
                           size: 28,
                           color: Colors.red,
                         )
-                      : Text(e),
+                      : Text(item),
                 ),
               ),
             ),
