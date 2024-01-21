@@ -15,9 +15,9 @@ class SimpleCalculatorPage extends StatefulWidget {
 class _SimpleCalculatorPageState extends State<SimpleCalculatorPage> {
   // list all of btns text
   final List<List<String>> expressionLists = const [
-    ['√', 'pow', 'π', '!'],
-    ['C', '()', '%', '/'],
-    ['7', '8', '9', '*'],
+    ['√', '^', 'π', '!'],
+    ['C', '()', '%', '÷'],
+    ['7', '8', '9', 'x'],
     ['4', '5', '6', '-'],
     ['1', '2', '3', '+'],
     ['0', '.', 'remove', '='],
