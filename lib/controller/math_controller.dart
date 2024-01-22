@@ -47,7 +47,7 @@ class MathController extends ChangeNotifier {
       String newInput = input
           .replaceAll("x", "*")
           .replaceAll("÷", "/")
-          .replaceAll("π", "3.14");
+          .replaceAll("π", "3.14159");
       // Parse the input into an expression
       Parser p = Parser();
       Expression exp = p.parse(newInput);
@@ -80,6 +80,8 @@ class MathController extends ChangeNotifier {
         input = balanceParentheses(input);
         notifyListeners();
         break;
+      case '√':
+        append("sqrt(");
       default:
         append(char);
     }
