@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
-import 'package:start/balance_parentheses.dart';
+import 'package:start/utils/extensions/string_ext.dart';
 
 class MathController extends ChangeNotifier {
   // A string to store the user input
@@ -77,7 +76,7 @@ class MathController extends ChangeNotifier {
         evaluate();
         break;
       case '()':
-        input = balanceParentheses(input);
+        input = input.balanceParentheses();
         notifyListeners();
         break;
       case '√':
