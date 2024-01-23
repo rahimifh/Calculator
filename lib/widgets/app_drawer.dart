@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:start/models/drawer_item.dart';
+import 'package:start/pages/feedback.dart';
+import 'package:start/pages/help.dart';
 import 'package:start/pages/history.dart';
+import 'package:start/pages/privacy_policy.dart';
+import 'package:start/pages/theme.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({
@@ -8,11 +12,11 @@ class AppDrawer extends StatelessWidget {
   });
 
   static List<ItemDrawer> items = [
-    ItemDrawer('History', Icons.book_outlined),
-    ItemDrawer('Theme', Icons.color_lens_outlined),
-    ItemDrawer('Pricacy Policy', Icons.security_outlined),
-    ItemDrawer('Feedback', Icons.feedback_outlined),
-    ItemDrawer('Help', Icons.help_center_outlined),
+    ItemDrawer('History', Icons.book_outlined, History()),
+    ItemDrawer('Theme', Icons.color_lens_outlined, ThemeSetting()),
+    ItemDrawer('privacy Policy', Icons.security_outlined, PrivacyPalicy()),
+    ItemDrawer('Feedback', Icons.feedback_outlined, FeedBack()),
+    ItemDrawer('Help', Icons.help_center_outlined, Help()),
   ];
 
   @override
@@ -36,7 +40,7 @@ class AppDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const History()),
+                  MaterialPageRoute(builder: (context) => e.page),
                 );
               },
             ),

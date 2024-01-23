@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:start/pages/simple_calculate_page.dart';
 
-class History extends StatelessWidget {
-  const History({super.key});
+class PrivacyPalicy extends StatelessWidget {
+  const PrivacyPalicy({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Second Route'),
+        title: const Text('privacy policy'),
       ),
       body: Center(
         child: Column(
           children: [
-            const Text("history"),
+            const Text("privacy policy"),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
