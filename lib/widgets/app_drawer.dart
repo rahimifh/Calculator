@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:start/models/drawer_item.dart';
+import 'package:start/pages/history.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({
@@ -33,7 +34,10 @@ class AppDrawer extends StatelessWidget {
               leading: Icon(e.icon),
               title: Text(e.title),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const History()),
+                );
               },
             ),
           ),
