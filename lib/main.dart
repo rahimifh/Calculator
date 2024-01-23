@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:start/bank/calculate_history.dart';
 import 'package:start/config/theme.dart';
 import 'package:start/controller/math_controller.dart';
 import 'package:start/controller/theme_controller.dart';
 import 'package:start/pages/simple_calculate_page.dart';
 
-void main() {
+late Box box;
+Future<void> main() async {
+  await Hive.initFlutter();
+  box = await Hive.openBox('box');
+  Hive.registerAdapter(ResultAdapter());
   runApp(const MyApp());
 }
 
