@@ -1,8 +1,11 @@
 import 'package:flutter/foundation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:start/models/history.dart';
 import 'package:start/utils/extensions/string_ext.dart';
 
 class MathController extends ChangeNotifier {
+  Box<History> historybox = Hive.box<History>('historyBox');
   // A string to store the user input
   String input = '';
 
@@ -57,6 +60,8 @@ class MathController extends ChangeNotifier {
       // Show the result as a string
       result = eval.toString();
       notifyListeners();
+
+      historybox.add(History('$input = $result', DateTime.now()));
     } catch (e) {
       // If there is an error, show it in snackbar
       rethrow;

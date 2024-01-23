@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:start/models/drawer_item.dart';
-import 'package:start/pages/feedback.dart';
-import 'package:start/pages/help.dart';
-import 'package:start/pages/history.dart';
-import 'package:start/pages/privacy_policy.dart';
-import 'package:start/pages/theme.dart';
+import 'package:start/pages/feedback_page.dart';
+import 'package:start/pages/help_page.dart';
+import 'package:start/pages/history_page.dart';
+import 'package:start/pages/privacy_policy_page.dart';
+import 'package:start/pages/theme_page.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({
@@ -12,11 +12,12 @@ class AppDrawer extends StatelessWidget {
   });
 
   static List<ItemDrawer> items = [
-    ItemDrawer('History', Icons.book_outlined, History()),
-    ItemDrawer('Theme', Icons.color_lens_outlined, ThemeSetting()),
-    ItemDrawer('privacy Policy', Icons.security_outlined, PrivacyPalicy()),
-    ItemDrawer('Feedback', Icons.feedback_outlined, FeedBack()),
-    ItemDrawer('Help', Icons.help_center_outlined, Help()),
+    ItemDrawer('History', Icons.book_outlined, const HistoryPage()),
+    ItemDrawer('Theme', Icons.color_lens_outlined, const ThemeSetting()),
+    ItemDrawer(
+        'privacy Policy', Icons.security_outlined, const PrivacyPalicy()),
+    ItemDrawer('Feedback', Icons.feedback_outlined, const FeedBack()),
+    ItemDrawer('Help', Icons.help_center_outlined, const Help()),
   ];
 
   @override
