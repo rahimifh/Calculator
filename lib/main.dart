@@ -12,6 +12,7 @@ Future<void> main() async {
   await Hive.initFlutter();
   box = await Hive.openBox('box');
   Hive.registerAdapter(ResultAdapter());
+  box.put('Result', Result(input: "8*8", result: "64"));
   runApp(const MyApp());
 }
 
