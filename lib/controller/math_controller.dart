@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:start/models/history.dart';
+import 'package:start/utils/extensions/double_ext.dart';
 import 'package:start/utils/extensions/string_ext.dart';
 
 class MathController extends ChangeNotifier {
@@ -33,18 +35,14 @@ class MathController extends ChangeNotifier {
 
   //remove single number or operation
   void remove() {
-    try {
+    if (input.isNotEmpty) {
       input = input.substring(0, input.length - 1);
       notifyListeners();
-    } catch (e) {
-      if (kDebugMode) {
-        print(e);
-      }
     }
   }
 
   // A function to evaluate the input and show the result
-  void evaluate() {
+  Future<void> evaluate() async {
     try {
       String newInput = input
           .replaceAll("x", "*")
@@ -58,13 +56,13 @@ class MathController extends ChangeNotifier {
       double eval = exp.evaluate(EvaluationType.REAL, cm);
 
       // Show the result as a string
-      result = eval.toString();
+      result = eval.roundToInt();
       notifyListeners();
 
-      historybox.add(History('$input = $result', DateTime.now()));
+      // Add operations to history
+      await historybox.add(History('$input = $result', DateTime.now()));
     } catch (e) {
-      // If there is an error, show it in snackbar
-      rethrow;
+      Fluttertoast.showToast(msg: '$e');
     }
   }
 
