@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:start/controller/theme_controller.dart';
+import 'package:calculator/controller/theme_controller.dart';
 
 class MainAppbar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppbar({super.key});

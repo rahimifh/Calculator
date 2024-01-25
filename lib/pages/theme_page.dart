@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:start/pages/simple_calculate_page.dart';
+import 'package:calculator/pages/simple_calculate_page.dart';
 
 class ThemeSetting extends StatelessWidget {
   const ThemeSetting({super.key});

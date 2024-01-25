@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:start/pages/simple_calculate_page.dart';
+import 'package:calculator/pages/simple_calculate_page.dart';
 
 class Help extends StatelessWidget {
   const Help({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:start/controller/history_controller.dart';
+import 'package:calculator/controller/history_controller.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});

@@ -1,5 +1,5 @@
-import 'package:start/data/data_sources/history_datasource.dart';
-import 'package:start/models/history.dart';
+import 'package:calculator/data/data_sources/history_datasource.dart';
+import 'package:calculator/models/history.dart';
 
 abstract class IHistoryReqpository {
   Future<void> createHistory({required History history});

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:start/data/repositories/history_repository.dart';
-import 'package:start/models/history.dart';
+import 'package:calculator/data/repositories/history_repository.dart';
+import 'package:calculator/models/history.dart';
 
 class HistoryController extends ChangeNotifier {
   final IHistoryReqpository repository = HistoryRepositoryImpl();
