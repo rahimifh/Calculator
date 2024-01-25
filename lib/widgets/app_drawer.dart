@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:start/controller/theme_controller.dart';
 import 'package:start/models/drawer_item.dart';
 import 'package:start/pages/feedback_page.dart';
 import 'package:start/pages/help_page.dart';
@@ -38,11 +40,29 @@ class AppDrawer extends StatelessWidget {
             (e) => ListTile(
               leading: Icon(e.icon),
               title: Text(e.title),
+              trailing: e.title == "Theme"
+                  ? IconButton(
+                      onPressed: () =>
+                          context.read<ThemeController>().changeTheme(),
+                      icon: Consumer<ThemeController>(
+                        builder: (context, value, child) => Icon(
+                          value.themeMode == ThemeMode.light
+                              ? Icons.dark_mode_sharp
+                              : Icons.light_mode_sharp,
+                          color: Colors.amber,
+                        ),
+                      ),
+                    )
+                  : null,
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => e.page),
-                );
+                if (e.title != "Theme") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => e.page),
+                  );
+                } else {
+                  context.read<ThemeController>().changeTheme();
+                }
               },
             ),
           ),
