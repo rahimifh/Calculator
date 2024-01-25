@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:start/controller/history_controller.dart';
 import 'package:start/models/history.dart';
 import 'package:start/utils/extensions/double_ext.dart';
 import 'package:start/utils/extensions/string_ext.dart';
 
 class MathController extends ChangeNotifier {
-  Box<History> historybox = Hive.box<History>('historyBox');
+  final HistoryController historyController = HistoryController();
   // A string to store the user input
   String input = '';
 
@@ -58,9 +58,9 @@ class MathController extends ChangeNotifier {
       // Show the result as a string
       result = eval.roundToInt();
       notifyListeners();
-
+      historyController
+          .createHistory(History('$input = $result', DateTime.now()));
       // Add operations to history
-      await historybox.add(History('$input = $result', DateTime.now()));
     } catch (e) {
       Fluttertoast.showToast(msg: '$e');
     }

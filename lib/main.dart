@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:start/config/theme.dart';
+import 'package:start/controller/history_controller.dart';
 import 'package:start/controller/math_controller.dart';
 import 'package:start/controller/theme_controller.dart';
 import 'package:start/init_db.dart';
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider<HistoryController>(
+          create: (context) => HistoryController(),
+        ),
         ChangeNotifierProvider<MathController>(
           create: (context) => MathController(),
         ),
