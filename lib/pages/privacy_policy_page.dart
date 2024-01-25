@@ -8,12 +8,24 @@ class PrivacyPalicy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('privacy policy'),
+        title: const Text(
+          'privacy policy',
+          style: TextStyle(fontSize: 20),
+        ),
       ),
       body: Center(
         child: Column(
           children: [
-            const Text("privacy policy"),
+            const Padding(
+              padding: EdgeInsets.all(8),
+              child: Text(
+                "When you use our services, you'r trusting us with your information. beside this app is completiely free and offline. Therefore, no imnormation from you is stored in any of our servers and will not be.Feel free to use it",
+                style: TextStyle(
+                  decorationStyle: TextDecorationStyle.wavy,
+                  fontSize: 20,
+                ),
+              ),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
