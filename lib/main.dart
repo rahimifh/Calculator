@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:start/config/theme.dart';
-import 'package:start/controller/history_controller.dart';
-import 'package:start/controller/math_controller.dart';
-import 'package:start/controller/theme_controller.dart';
-import 'package:start/init_db.dart';
-import 'package:start/pages/simple_calculate_page.dart';
+import 'package:calculator/config/theme.dart';
+import 'package:calculator/controller/history_controller.dart';
+import 'package:calculator/controller/math_controller.dart';
+import 'package:calculator/controller/theme_controller.dart';
+import 'package:calculator/init_db.dart';
+import 'package:calculator/pages/simple_calculate_page.dart';
 
 Future<void> main() async {
   await initDB();

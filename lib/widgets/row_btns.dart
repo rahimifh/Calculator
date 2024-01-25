@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:start/controller/math_controller.dart';
+import 'package:calculator/controller/math_controller.dart';
 
 class RowBtns extends StatelessWidget {
   const RowBtns({

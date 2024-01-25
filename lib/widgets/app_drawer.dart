@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:start/controller/theme_controller.dart';
-import 'package:start/models/drawer_item.dart';
-import 'package:start/pages/feedback_page.dart';
-import 'package:start/pages/help_page.dart';
-import 'package:start/pages/history_page.dart';
-import 'package:start/pages/privacy_policy_page.dart';
-import 'package:start/pages/theme_page.dart';
+import 'package:calculator/controller/theme_controller.dart';
+import 'package:calculator/models/drawer_item.dart';
+import 'package:calculator/pages/feedback_page.dart';
+import 'package:calculator/pages/help_page.dart';
+import 'package:calculator/pages/history_page.dart';
+import 'package:calculator/pages/privacy_policy_page.dart';
+import 'package:calculator/pages/theme_page.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({

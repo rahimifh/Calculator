@@ -13,7 +13,7 @@ if (localPropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.example.start"
+    namespace "com.example.calculator"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
@@ -31,7 +31,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.start"
+        applicationId "com.example.calculator"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode 1

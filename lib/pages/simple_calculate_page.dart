@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:start/controller/math_controller.dart';
-import 'package:start/widgets/app_drawer.dart';
-import 'package:start/widgets/main_appbar.dart';
-import 'package:start/widgets/row_btns.dart';
+import 'package:calculator/controller/math_controller.dart';
+import 'package:calculator/widgets/app_drawer.dart';
+import 'package:calculator/widgets/main_appbar.dart';
+import 'package:calculator/widgets/row_btns.dart';
 
 class SimpleCalculatorPage extends StatefulWidget {
   const SimpleCalculatorPage({super.key});

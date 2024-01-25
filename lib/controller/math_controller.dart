@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:math_expressions/math_expressions.dart';
-import 'package:start/controller/history_controller.dart';
-import 'package:start/models/history.dart';
-import 'package:start/utils/extensions/double_ext.dart';
-import 'package:start/utils/extensions/string_ext.dart';
+import 'package:calculator/controller/history_controller.dart';
+import 'package:calculator/models/history.dart';
+import 'package:calculator/utils/extensions/double_ext.dart';
+import 'package:calculator/utils/extensions/string_ext.dart';
 
 class MathController extends ChangeNotifier {
   final HistoryController historyController = HistoryController();

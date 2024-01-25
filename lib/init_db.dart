@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:start/models/history.dart';
+import 'package:calculator/models/history.dart';
 
 Future<void> initDB() async {
   await Hive.initFlutter();
