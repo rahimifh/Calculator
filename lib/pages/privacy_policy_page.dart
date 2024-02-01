@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:start/pages/simple_calculate_page.dart';
+import 'package:start/pages/simple_calculator_page/simple_calculate_page.dart';
 
 class PrivacyPalicy extends StatelessWidget {
   const PrivacyPalicy({super.key});

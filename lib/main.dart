@@ -4,7 +4,7 @@ import 'package:start/config/theme.dart';
 import 'package:start/controller/math_controller.dart';
 import 'package:start/controller/theme_controller.dart';
 import 'package:start/init_db.dart';
-import 'package:start/pages/simple_calculate_page.dart';
+import 'package:start/pages/simple_calculator_page/simple_calculate_page.dart';
 
 Future<void> main() async {
   await initDB();

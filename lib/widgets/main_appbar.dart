@@ -10,7 +10,6 @@ class MainAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor:
           Colors.amber, //Theme.of(context).colorScheme.inversePrimary,
-      foregroundColor: Colors.white,
       title: const Text('Calculator'),
       actions: [
         IconButton(
@@ -20,7 +19,6 @@ class MainAppbar extends StatelessWidget implements PreferredSizeWidget {
               value.themeMode == ThemeMode.light
                   ? Icons.dark_mode_sharp
                   : Icons.light_mode_sharp,
-              color: Colors.white,
             ),
           ),
         ),
