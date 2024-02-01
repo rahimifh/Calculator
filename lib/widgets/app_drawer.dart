@@ -34,18 +34,24 @@ class AppDrawer extends StatelessWidget {
               style: TextStyle(fontSize: 18),
             ),
           ),
-          ...items.map(
-            (e) => ListTile(
-              leading: Icon(e.icon),
-              title: Text(e.title),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => e.page),
-                );
-              },
+          Expanded(
+            child: ListView(
+              children: [
+                ...items.map(
+                  (e) => ListTile(
+                    leading: Icon(e.icon),
+                    title: Text(e.title),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => e.page),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-          ),
+          )
         ],
       ),
     );
