@@ -11,9 +11,13 @@ if (localPropertiesFile.exists()) {
         localProperties.load(reader)
     }
 }
-
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 android {
-    namespace "com.example.calculator"
+    namespace "com.amir.siavash.calculator"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
@@ -31,16 +35,23 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.calculator"
+        applicationId "com.amir.siavash.calculator"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
     }
-
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        }
+    }
     buildTypes {
         release {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }
